@@ -1,0 +1,179 @@
+.yoga-poses-page {
+  padding-top: 76px;
+}
+
+.poses-hero {
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+  color: white;
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.poses-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.poses-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.poses-hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.poses-filters-section {
+  padding: 40px 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 76px;
+  z-index: 100;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6C63FF;
+  font-size: 1rem;
+  z-index: 2;
+}
+
+.search-input {
+  padding-left: 50px !important;
+  height: 52px;
+  border-radius: 26px;
+  border: 2px solid #e9ecef;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #6C63FF;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.1);
+}
+
+.difficulty-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-icon {
+  color: #6C63FF;
+  font-size: 1.1rem;
+}
+
+.difficulty-btn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px !important;
+  padding: 10px 16px;
+  transition: all 0.3s ease;
+}
+
+.difficulty-btn.active {
+  background: linear-gradient(135deg, #6C63FF, #FF6584) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.filter-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 2px solid #e9ecef;
+  background: white;
+  color: #495057;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-pill:hover {
+  border-color: #6C63FF;
+  color: #6C63FF;
+}
+
+.filter-pill.active {
+  background: linear-gradient(135deg, #6C63FF, #FF6584);
+  border-color: transparent;
+  color: white;
+}
+
+.poses-grid-section {
+  padding: 60px 0 80px;
+  background: #F8F9FA;
+}
+
+.poses-count {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.no-results {
+  padding: 80px 0;
+}
+
+.no-results h3 {
+  font-size: 1.8rem;
+  color: #1A1A2E;
+  margin-bottom: 12px;
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 991px) {
+  .poses-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .difficulty-filters {
+    display: none;
+  }
+
+  .filter-pills {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .poses-hero-title {
+    font-size: 2rem;
+  }
+
+  .poses-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+  }
+}

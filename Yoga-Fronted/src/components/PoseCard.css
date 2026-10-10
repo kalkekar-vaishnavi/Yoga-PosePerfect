@@ -1,0 +1,86 @@
+.pose-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.pose-card:hover {
+  box-shadow: 0 8px 40px rgba(108, 99, 255, 0.2);
+}
+
+.pose-card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+}
+
+.pose-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pose-card:hover .pose-card-img {
+  transform: scale(1.08);
+}
+
+.pose-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.85), rgba(255, 101, 132, 0.85));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pose-card:hover .pose-card-overlay {
+  opacity: 1;
+}
+
+.pose-card-view {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.difficulty-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.pose-card-body {
+  padding: 20px;
+}
+
+.pose-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1A1A2E;
+  margin-bottom: 10px;
+}
+
+.pose-card-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+}

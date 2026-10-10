@@ -1,0 +1,164 @@
+.pose-detail-page {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  background: #F8F9FA;
+}
+
+.back-button {
+  color: #6C63FF !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  color: #5A52D5 !important;
+  gap: 12px;
+}
+
+.pose-detail-image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+}
+
+.pose-detail-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pose-detail-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pose-detail-content {
+  padding-left: 0;
+}
+
+.pose-detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1A1A2E;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.pose-detail-section {
+  margin-bottom: 30px;
+}
+
+.section-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1A1A2E;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #6C63FF, #FF6584);
+  border-radius: 2px;
+}
+
+.section-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #495057;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  color: #495057;
+  line-height: 1.6;
+}
+
+.benefit-icon {
+  color: #43E97B;
+  font-size: 1.1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.pose-detail-actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.related-poses-section {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 2px solid #e9ecef;
+}
+
+.related-poses-section .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1A1A2E;
+}
+
+@media (max-width: 991px) {
+  .pose-detail-page {
+    padding-top: 100px;
+  }
+
+  .pose-detail-title {
+    font-size: 2rem;
+  }
+
+  .pose-detail-content {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pose-detail-title {
+    font-size: 1.75rem;
+  }
+
+  .section-heading {
+    font-size: 1.2rem;
+  }
+
+  .pose-detail-badge {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+  }
+}

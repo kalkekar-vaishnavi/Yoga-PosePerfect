@@ -1,6 +1,7 @@
 package com.example.yoga.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserFeedBackModel {
 
     @Id
@@ -17,49 +19,12 @@ public class UserFeedBackModel {
     private Long id;
 
     private String name;
+
     private String address;
+
+    @Column(length = 1000)
     private String message;
 
     @Column(nullable = false)
-    private int rate;  // Rating in number
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
+    private int rate;
 }

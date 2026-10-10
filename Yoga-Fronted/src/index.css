@@ -1,0 +1,198 @@
+/* ===== Global Styles — PosePerfect ===== */
+
+:root {
+  --primary: #6C63FF;
+  --primary-dark: #5A52D5;
+  --primary-light: #8B83FF;
+  --secondary: #FF6584;
+  --secondary-dark: #E0506E;
+  --accent: #43E97B;
+  --accent-dark: #38C968;
+  --dark: #1A1A2E;
+  --dark-light: #16213E;
+  --gray-900: #212529;
+  --gray-700: #495057;
+  --gray-500: #6c757d;
+  --gray-300: #dee2e6;
+  --gray-100: #f1f3f5;
+  --light: #F8F9FA;
+  --white: #FFFFFF;
+  --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+  --gradient-dark: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+  --gradient-accent: linear-gradient(135deg, #43E97B 0%, #38F9D7 100%);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+  --shadow-primary: 0 4px 20px rgba(108, 99, 255, 0.3);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--gray-900);
+  background-color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.bg-gradient-dark {
+  background: var(--gradient-dark);
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.btn-primary-gradient {
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+  color: white;
+}
+
+.btn-outline-custom {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 10px 30px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline-custom:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+}
+
+/* Page transition wrapper */
+.page-wrapper {
+  min-height: 100vh;
+}
+
+/* Toast styles */
+.toast-success {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+.toast-error {
+  background: var(--secondary) !important;
+  color: white !important;
+}
+
+/* Selection color */
+::selection {
+  background: var(--primary-light);
+  color: white;
+}

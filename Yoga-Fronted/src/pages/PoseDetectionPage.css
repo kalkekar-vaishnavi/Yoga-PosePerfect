@@ -1,0 +1,124 @@
+.pose-detection-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding-top: 80px;
+}
+
+.page-header h1 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+.detection-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: none;
+}
+
+.webcam-container {
+  position: relative;
+  background: #000;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.webcam-feed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pose-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.overlay-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+.overlay-message svg {
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.overlay-message p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.controls-bar {
+  border-top: 1px solid #dee2e6;
+}
+
+.info-card,
+.instructions-card {
+  border-radius: 12px;
+  border: none;
+}
+
+.result-item label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.instructions-list {
+  padding-left: 1.25rem;
+  margin-bottom: 0;
+}
+
+.instructions-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.instructions-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .info-card,
+  .instructions-card {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pose-detection-page {
+    padding-top: 60px;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .controls-bar .d-flex {
+    flex-direction: column;
+  }
+
+  .controls-bar .btn {
+    width: 100%;
+  }
+}

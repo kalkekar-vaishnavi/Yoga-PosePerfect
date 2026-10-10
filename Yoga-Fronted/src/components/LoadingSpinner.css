@@ -1,0 +1,44 @@
+.loading-spinner-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+}
+
+.spinner-content {
+  text-align: center;
+}
+
+.loading-spinner-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 0;
+}
+
+.custom-spinner {
+  width: 50px;
+  height: 50px;
+  border-width: 4px;
+  border-color: #6C63FF;
+  border-right-color: transparent;
+}
+
+.loading-message {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.loading-spinner-inline .loading-message {
+  margin-top: 0;
+}

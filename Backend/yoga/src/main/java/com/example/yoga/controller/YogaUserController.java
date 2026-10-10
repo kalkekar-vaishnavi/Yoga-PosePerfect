@@ -1,49 +1,63 @@
 package com.example.yoga.controller;
 
+import com.example.yoga.dto.ApiResponse;
+import com.example.yoga.dto.AuthResponse;
+import com.example.yoga.dto.LoginRequest;
+import com.example.yoga.dto.RegisterRequest;
 import com.example.yoga.model.YogaUserModel;
-import com.example.yoga.repository.YogaUserRepository;
+import com.example.yoga.security.JwtUtil;
 import com.example.yoga.service.YogaUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-import java.util.UUID;
 
+/**
+ * Controller handling user registration and authentication.
+ */
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins = "http://localhost:3000") // Allow frontend requests
+@CrossOrigin(origins = "http://localhost:3000")
+@Tag(name = "Authentication", description = "User registration and login endpoints")
 public class YogaUserController {
 
-    @Autowired
-    private YogaUserService userService;
+    private final YogaUserService userService;
+    private final JwtUtil jwtUtil;
+
+    public YogaUserController(YogaUserService userService, JwtUtil jwtUtil) {
+        this.userService = userService;
+        this.jwtUtil = jwtUtil;
+    }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody YogaUserModel user) {
-        try {
-            // Save the user
-            YogaUserModel savedUser = userService.registerUser(user);
-            return ResponseEntity.ok(savedUser);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error: " + e.getMessage());
-        }
+    @Operation(summary = "Register a new user", description = "Creates a new user account with hashed password")
+    public ResponseEntity<ApiResponse<?>> registerUser(@Valid @RequestBody RegisterRequest request) {
+        YogaUserModel user = new YogaUserModel(
+                request.getUserName(),
+                request.getEmail(),
+                request.getPassword()
+        );
+        YogaUserModel savedUser = userService.registerUser(user);
+        return ResponseEntity.ok(ApiResponse.success("User registered successfully",
+                new AuthResponse(jwtUtil.generateToken(savedUser.getUserName()), savedUser.getUserName())));
     }
+
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody YogaUserModel user) {
-        try {
-            Optional<YogaUserModel> authenticatedUser = userService.authenticateUser(user.getUserName(), user.getPassword());
+    @Operation(summary = "Login", description = "Authenticates a user and returns a JWT token")
+    public ResponseEntity<ApiResponse<?>> loginUser(@Valid @RequestBody LoginRequest request) {
+        Optional<YogaUserModel> authenticatedUser =
+                userService.authenticateUser(request.getUserName(), request.getPassword());
 
-            if (authenticatedUser.isPresent()) {
-                // Generate a random token (replace this with JWT in real applications)
-                String token = UUID.randomUUID().toString();
-                return ResponseEntity.ok().body("{\"token\": \"" + token + "\"}");
-            } else {
-                return ResponseEntity.status(401).body("Invalid username or password");
-            }
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error: " + e.getMessage());
+        if (authenticatedUser.isPresent()) {
+            String token = jwtUtil.generateToken(request.getUserName());
+            return ResponseEntity.ok(ApiResponse.success("Login successful",
+                    new AuthResponse(token, request.getUserName())));
         }
+
+        return ResponseEntity.status(401)
+                .body(ApiResponse.error("Invalid username or password"));
     }
-
-
 }
